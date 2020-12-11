@@ -1,0 +1,24 @@
+// input container
+.input-container {
+  // all input containers except the last one on the page
+  &:not(:last-child) {
+    // give a 15px space before another element
+    margin-bottom: 15px;
+  }
+
+  // all inputs and labels
+  input, label {
+    // take up entire width; do not allow elements to display next to it
+    display: block;
+  }
+
+  // all the inputs
+  input {
+    // remove default border
+    border: none; 
+    // give a bottom border; color can change
+    border-bottom: 1px solid #808080;
+    // no outer glow effect when selected
+    outline: none;
+  }
+}

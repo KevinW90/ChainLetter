@@ -13,7 +13,7 @@ const Input = ({
   placeholder,
 }) => (
   // Fragment to hold a label and input element
-  <>
+  <div className="input-container">
     {/* Wrapping the input inside the label (as is done inside the Nav component)
         eliminates the need for htmlFor and id pairings because the association
         is implicit --https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label */}
@@ -28,7 +28,7 @@ const Input = ({
       placeholder={placeholder}
       name={name}
     />
-  </>
+  </div>
 );
 
 export default Input;
