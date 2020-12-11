@@ -14,23 +14,20 @@ const Input = ({
 }) => (
   // Fragment to hold a label and input element
   <>
-    {/* 
-      Wrapping the input inside the label (as is done inside the Nav component)
-      eliminates the need for htmlFor and id pairings because the association
-      is implicit --https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label
-    */}
+    {/* Wrapping the input inside the label (as is done inside the Nav component)
+        eliminates the need for htmlFor and id pairings because the association
+        is implicit --https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label */}
 
-    <label>
-      {labelText}
-      <input
-        // eslint-disable-next-line react/input-has-type
-        type={type}
-        // onChange={changeHandler}
-        // value={value}
-        placeholder={placeholder}
-      >
-      </input>
+    <label htmlFor={name}>
+      {showLabel && labelText}
     </label>
+    <input
+      type={type}
+      onChange={changeHandler}
+      value={isControlled ? '' : value}
+      placeholder={placeholder}
+      name={name}
+    />
   </>
 );
 
@@ -38,17 +35,19 @@ export default Input;
 
 Input.propTypes = {
   type: PropTypes.string.isRequired,
-  variant: PropTypes.string.isRequired,
-  clickHandler: PropTypes.func,
-  text: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  changeHandler: PropTypes.func,
   value: PropTypes.string,
   isControlled: PropTypes.bool,
-  labelText: PropTypes.string,
+  labelText: PropTypes.string.isRequired,
   showLabel: PropTypes.bool,
   placeholder: PropTypes.string,
 };
 
-Button.defaultProps = {
-  clickHandler: null,
-  text: 'Confirm',
+Input.defaultProps = {
+  changeHandler: null,
+  value: null,
+  isControlled: false,
+  showLabel: true,
+  placeholder: '',
 };
