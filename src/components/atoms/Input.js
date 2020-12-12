@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import _uniqueId from 'lodash/uniqueId';
+
 import './Input.scss';
 
 const Input = ({
@@ -11,25 +13,34 @@ const Input = ({
   labelText,
   showLabel,
   placeholder,
-}) => (
-  // Fragment to hold a label and input element
-  <div className="input-container">
-    {/* Wrapping the input inside the label (as is done inside the Nav component)
-        eliminates the need for htmlFor and id pairings because the association
-        is implicit --https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label */}
+}) => {
+  /* When creating unique id values, state is recommended so the component does not
+    change its ID on every render. Note we do not have a way to change the id
+    generated from the useState call.
+  */
+  const [uid] = useState(_uniqueId('input-'));
 
-    <label htmlFor={name}>
-      {showLabel && labelText}
-    </label>
-    <input
-      type={type}
-      onChange={changeHandler}
-      value={isControlled ? '' : value}
-      placeholder={placeholder}
-      name={name}
-    />
-  </div>
-);
+  // Fragment to hold a label and input element
+  return (
+    <div className="input-container">
+      {/* Wrapping the input inside the label (as is done inside the Nav component)
+          eliminates the need for htmlFor and id pairings because the association
+          is implicit --https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label */}
+
+      <label htmlFor={uid}>
+        {showLabel && labelText}
+        <input
+          id={uid}
+          type={type}
+          onChange={changeHandler}
+          value={isControlled ? '' : value}
+          placeholder={placeholder}
+          name={name}
+        />
+      </label>
+    </div>
+  );
+};
 
 export default Input;
 

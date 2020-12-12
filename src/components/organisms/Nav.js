@@ -5,6 +5,7 @@ import Button from '../atoms/Button';
 import AddStory from '../templates/AddStory';
 import Modal from './Modal';
 import Input from '../atoms/Input';
+
 import './Nav.scss';
 
 const modalStates = {
