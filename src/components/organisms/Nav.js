@@ -145,6 +145,7 @@ const Nav = () => {
               labelText="Email"
               placeholder="Enter your email"
               name="email"
+              showLabel={false}
             />
             <Input
               type="password"
