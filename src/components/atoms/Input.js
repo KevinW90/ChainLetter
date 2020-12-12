@@ -23,7 +23,6 @@ const Input = ({
   */
   const [uid] = useState(_uniqueId('input-'));
 
-  // Fragment to hold a label and input element
   return (
     <div className="input-container">
       {/* Wrapping the input inside the label (as is done inside the Nav component)
