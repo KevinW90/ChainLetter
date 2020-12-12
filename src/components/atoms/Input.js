@@ -4,6 +4,9 @@ import _uniqueId from 'lodash/uniqueId';
 
 import './Input.scss';
 
+// Warning: `value` prop on `input` should not be null. Consider using an empty string
+// to clear the component or `undefined` for uncontrolled components.
+
 const Input = ({
   type,
   name,
