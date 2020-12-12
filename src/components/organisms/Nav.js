@@ -140,14 +140,18 @@ const Nav = () => {
             canCancel
             cancelHandler={() => setModalState(modalStates.closed)}
           >
-            <label htmlFor="email">
-              Email
-              <input type="text" name="email" />
-            </label>
-            <label htmlFor="password">
-              Password
-              <input type="password" name="password" />
-            </label>
+            <Input
+              type="text"
+              labelText="Email"
+              placeholder="Enter your email"
+              name="email"
+            />
+            <Input
+              type="password"
+              labelText="Password"
+              placeholder="Enter your password"
+              name="password"
+            />
           </Modal>
         )
       }
